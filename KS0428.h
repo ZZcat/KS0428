@@ -1,3 +1,9 @@
+#include <IR.h>
+#ifndef SoftwareSerial_h
+#error Sketch must include SoftwareSerial.h
+#endif
+
+
 #ifndef KS0428_h
 #define KS0428_h
  
