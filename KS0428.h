@@ -1,6 +1,6 @@
-#include <IR.h>
-#ifndef SoftwareSerial_h
-#error Sketch must include SoftwareSerial.h
+#include <IRremote.h>
+#ifndef IRremote_h
+#error Sketch must include IRremote.h but it is not found. Please install IRremote.h
 #endif
 
 
