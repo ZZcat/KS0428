@@ -31,20 +31,20 @@ void IIC_send(unsigned char send_data)
 {
 	for(char i = 0;i < 8;i++)
 	{
-		     digitalWrite(IIC_SCL,LOW);
-		     delayMicroseconds(3);
-		     if(send_data & 0x01)
-		     {
-			    digitalWrite(IIC_SDA,HIGH);
-		     }
-		     else
-		     {
-			    digitalWrite(IIC_SDA,LOW);
-		     }
-		     delayMicroseconds(3);
-		     digitalWrite(IIC_SCL,HIGH);
-		     delayMicroseconds(3);
-		     send_data = send_data >> 1;
+		digitalWrite(IIC_SCL,LOW);
+		delayMicroseconds(3);
+		if(send_data & 0x01)
+		{
+			digitalWrite(IIC_SDA,HIGH);
+		}
+		else
+		{
+			digitalWrite(IIC_SDA,LOW);
+		}
+		delayMicroseconds(3);
+		digitalWrite(IIC_SCL,HIGH);
+		delayMicroseconds(3);
+		send_data = send_data >> 1;
 	}
 }
 
