@@ -5,7 +5,6 @@
 // Figure out how to set IRremote as dep. of self
 #include <IRremote.h>
 
-
 #define IIC_SCL  A5
 #define IIC_SDA  A4
 
@@ -180,47 +179,6 @@ void robotSetup () {
     IIC_send(0xc0);
     pulsewidth = 0;
     pinMode(9, OUTPUT);
-  /* ===============
-  IIC_start();
-      IIC_send(0xc0);
-      for(char i = 0;i < 16;i++)
-      {
-         IIC_send(clear[i]);
-      }
-      if(++delay_count >= 10)
-      {
-        delay_count = 0;
-        data_line++;
-        if(data_line >= 4)
-        {
-          data_line = 0;
-        }
-      }
-      IIC_end();
-      IIC_start();
-      IIC_send(0x8A);
-      IIC_end();
-
-  IIC_start();
-      IIC_send(0xc0);
-      for(char i = 0;i < 16;i++)
-      {
-         IIC_send(start01[i]);
-      }
-      if(++delay_count >= 10)
-      {
-        delay_count = 0;
-        data_line++;
-        if(data_line >= 4)
-        {
-          data_line = 0;
-        }
-      }
-      IIC_end();
-      IIC_start();
-      IIC_send(0x8A);
-      IIC_end();
-  ============*/
 
   //procedure(90);
   pinMode(A1, INPUT);
