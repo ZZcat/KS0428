@@ -9,14 +9,10 @@
 
 
 unsigned char data_line = 0;
-
 unsigned char delay_count = 0;
-
 long ir_rec;
-
 IRrecv irrecv(A0);
 decode_results results;
-
 volatile int pulsewidth;
 
 void IIC_start()
@@ -28,7 +24,8 @@ void IIC_start()
   digitalWrite(IIC_SCL,HIGH);
   delayMicroseconds(3);
   digitalWrite(IIC_SDA,LOW);
-  delayMicroseconds(3);}
+  delayMicroseconds(3);
+}
 
 void IIC_send(unsigned char send_data)
 {
