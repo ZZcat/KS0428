@@ -149,16 +149,15 @@ int lightR () {
 }
 
 int getIR () {
-		if (irrecv.decode(&results)) {
-		     ir_rec=results.value;
-		     Serial.println(ir_rec,HEX);
-		     irrecv.resume(); // Clear buffer and allow new data. Appears to capture first signal
-		}
-		return ir_rec;
+	if (irrecv.decode(&results)) {
+		ir_rec=results.value;
+		Serial.println(ir_rec,HEX);
+		irrecv.resume(); // Clear buffer and allow new data. Appears to capture first signal
+	}
+	return ir_rec;
 }
 
 void robotSetup () {
-
 	irrecv.enableIRIn();
 	pinMode(12, OUTPUT);
 	pinMode(3, OUTPUT);
