@@ -70,8 +70,11 @@ void procedure(int myangle) {
 	}
 }
 
-/// Z ?//
+//////////////////////
+/// Main Functions ///
+//////////////////////
 
+// Sets the pixels on the LED display
 void ledDisplay (unsigned char *displayHex)
 {
 	IIC_start();
@@ -95,6 +98,7 @@ void ledDisplay (unsigned char *displayHex)
 	IIC_end();
 }
 
+// Returns the distance from the ultrasonic sensor
 float checkdistance() { // Ultrasonic sensor
 	digitalWrite(5, LOW);
 	delayMicroseconds(2);
@@ -106,6 +110,7 @@ float checkdistance() { // Ultrasonic sensor
 	return distance;
 }
 
+// Changes the rotation of the ultrasonic sensor servo
 void rotateServo(int myangle) {
 	for (int i = 0; i <= 50; i = i + (1)) {
 		pulsewidth = myangle * 11 + 500;
@@ -116,6 +121,8 @@ void rotateServo(int myangle) {
 	}
 }
 
+// Motor control
+// FIXME ///// // TODO /////
 void motor(int left, int right){
 	if (left == -1) {
 		digitalWrite(13, HIGH);
@@ -140,23 +147,28 @@ void motor(int left, int right){
 	}
 }
 
+// Returns the amount of detected light from the left photoresistor
 int lightL () {
  return analogRead(A1);
 }
 
+// Returns the amount of detected light from the right photoresistor
 int lightR () {
  return analogRead(A2);
 }
 
+// Receive the first IR code sent to the sensor.
+// Returns the code as an int.
 int getIR () {
 	if (irrecv.decode(&results)) {
 		ir_rec=results.value;
-		Serial.println(ir_rec,HEX);
 		irrecv.resume(); // Clear buffer and allow new data. Appears to capture first signal
 	}
 	return ir_rec;
 }
 
+// Sets up the robots sensors and motors.
+// Should be ran once in setup
 void robotSetup () {
 	irrecv.enableIRIn();
 	pinMode(12, OUTPUT);
