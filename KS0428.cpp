@@ -1,8 +1,7 @@
-/*This is where you write the code you want to run*/
 #include "Arduino.h"
 #include "KS0428.h"
 
-// Figure out how to set IRremote as dep. of self
+//// Figure out how to set IRremote as dep. of self
 #include <IRremote.h>
 
 #define IIC_SCL  A5
@@ -78,25 +77,25 @@ void procedure(int myangle) {
 
 void ledDisplay (unsigned char *displayHex)
 {
-  IIC_start();
-    IIC_send(0xc0);
-    for(char i = 0;i < 16;i++)
-    {
-       IIC_send(displayHex[i]);
-    }
-    if(++delay_count >= 10)
-    {
-      delay_count = 0;
-      data_line++;
-      if(data_line >= 4)
-      {
-        data_line = 0;
-      }
-    }
-    IIC_end();
-    IIC_start();
-    IIC_send(0x8A);
-    IIC_end();
+	IIC_start();
+	IIC_send(0xc0);
+	for(char i = 0;i < 16;i++)
+	{
+		IIC_send(displayHex[i]);
+	}
+	if(++delay_count >= 10)
+	{
+		delay_count = 0;
+		data_line++;
+		if(data_line >= 4)
+		{
+			data_line = 0;
+		}
+	}
+	IIC_end();
+	IIC_start();
+	IIC_send(0x8A);
+	IIC_end();
 }
 
 float checkdistance() { // Ultrasonic sensor
@@ -180,7 +179,6 @@ void robotSetup () {
     pulsewidth = 0;
     pinMode(9, OUTPUT);
 
-  //procedure(90);
   pinMode(A1, INPUT);
   pinMode(A2, INPUT);
   pinMode(IIC_SCL,OUTPUT);
