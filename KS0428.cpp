@@ -57,16 +57,17 @@ void IIC_end()
 	digitalWrite(IIC_SCL,HIGH);
 	delayMicroseconds(3);
 	digitalWrite(IIC_SDA,HIGH);
-	delayMicroseconds(3);}
+	delayMicroseconds(3);
+}
 
 
 void procedure(int myangle) {
 	for (int i = 0; i <= 50; i = i + (1)) {
-		pulsewidth = myangle * 11 + 500;
+		pulsewidth = myangle * 11 + 3; // + 500;
 		digitalWrite(9,HIGH);
 		delayMicroseconds(pulsewidth);
 		digitalWrite(9,LOW);
-		delay((20 - pulsewidth / 1000));
+		delay(100); //delay((20 - pulsewidth / 1000));
 	}
 }
 
@@ -111,12 +112,13 @@ float checkdistance() { // Ultrasonic sensor
 }
 
 // Changes the rotation of the ultrasonic sensor servo
-void rotateServo(int myangle) {
+void rotateServo(int myangle) { //TODO: Fix large time delays (with threading?)
 	for (int i = 0; i <= 50; i = i + (1)) {
 		pulsewidth = myangle * 11 + 500;
 		digitalWrite(9,HIGH);
-		delayMicroseconds(pulsewidth);
+		delayMicroseconds(pulsewidth); //pulsewidth);
 		digitalWrite(9,LOW);
+		//delayMicroseconds(pulsewidth); //
 		delay((20 - pulsewidth / 1000));
 	}
 }
