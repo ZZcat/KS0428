@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map For KS0428
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#KS0428	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+ledDisplay	KEYWORD2
+checkdistance	KEYWORD2
+motor	KEYWORD2
+rotateServo	KEYWORD2
+robotSetup	KEYWORD2
+lightL	KEYWORD2
+lightR	KEYWORD2
+getIR	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
